@@ -51,6 +51,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import { ChartsModule } from 'ng2-charts';
+import {DataTablesModule} from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -112,7 +113,8 @@ import { ChartsModule } from 'ng2-charts';
   MatTreeModule,
   PortalModule,
   ScrollingModule,
-  ChartsModule
+  ChartsModule,
+  DataTablesModule
 
 
   ],

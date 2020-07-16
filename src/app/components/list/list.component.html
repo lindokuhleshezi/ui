@@ -1,25 +1,19 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width:100%">
-
-    <!-- Position Column -->
-    <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef> No. </th>
-        <td mat-cell *matCellDef="let element"> {{element.part_id}} </td>
-    </ng-container>
-    <ng-container matColumnDef="part_description">
-        <th mat-header-cell *matHeaderCellDef> Description </th>
-        <td mat-cell *matCellDef="let element"> {{element.part_description}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="action">
-        <th mat-header-cell *matHeaderCellDef> Action </th>
-        <td mat-cell *matCellDef="let element">
-            <button mat-mini-fab color="primary" aria-label="info" class="action-btn" (click)="viewDetails(element.part_id)">
-          <mat-icon>info</mat-icon>
-        </button>
-        </td>
-    </ng-container>
-
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+<div>
+    <h1>{{title}}</h1>
+</div>
+<table *ngIf="!isLoading" class="table table-striped table-bordered table-sm row-border hover" datatable [dtOptions]="dtOptions">
+    <thead>
+        <tr>
+            <th>No.</th>
+            <th>Description</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let part of parts">
+            <td>{{part.part_id + 1}}</td>
+            <td>{{part.part_description}}</td>
+            <td><button (click)="viewDetails(part.part_id)" type="button" class="btn btn-info" style="width: 100%;">Info</button></td>
+        </tr>
+    </tbody>
 </table>
